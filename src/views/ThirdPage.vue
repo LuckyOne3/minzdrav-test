@@ -12,7 +12,7 @@ import TableViewer from '@/components/TableViewer.vue'
 import {setTable} from "@/scripts/setTable";
 
 export default {
-  name: 'SecondPage',
+  name: 'ThirdPage',
   components: {
     TableViewer,
   },
@@ -72,22 +72,16 @@ export default {
               let price = 0;
               let count = 0;
               let total = 0;
-              let torgName = []
-              let formVip = []
               if (massOfSame.length === 1) {
                 console.log("da")
               } else {
                 massOfSame.forEach((item) => {
                   price += item['Цена'] * item['Количество']
                   count += item['Количество']
-                  torgName.push(item['Торговое наименование'] + '\n')
-                  formVip.push(item['Форма выпуска'] + '\n')
                 })
                 total = price / count
                 previousItem['Цена'] = total
                 previousItem['Количество'] = count
-                previousItem['Торговое наименование'] = torgName
-                previousItem['Форма выпуска'] = formVip
               }
               console.log('same', massOfSame)
               massOfCompanies.push(item)
@@ -118,12 +112,15 @@ export default {
     },
     addTotalPriceAndRemoveOthers(excellist) {
       excellist.forEach((item, index) => {
+        delete item['Торговое наименование']
+        delete item['Форма выпуска']
         let current = item['Количество'] * item['Цена']
         item['Затраты'] = +current.toFixed(2)
       })
       return excellist
     },
     addHeaderForTotalPrice(headers) {
+      headers.splice(1, 2)
       headers.push('Затраты')
       return headers
     },
@@ -139,8 +136,6 @@ export default {
       excellist.push(
           {
             "Международное непатентованное наименование": ' ',
-            "Торговое наименование" : '',
-            "Форма выпуска" : '',
             "Количество": +count.toFixed(2),
             "Цена": +price.toFixed(2),
             "Затраты": +totalPrice.toFixed(2),

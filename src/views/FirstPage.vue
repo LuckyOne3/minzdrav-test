@@ -74,6 +74,15 @@ export default {
             headers: JSON.parse(JSON.stringify(headers)),
             body: JSON.parse(JSON.stringify(excellist)),
           }
+          excellist.sort(function (a, b) {
+            let nameA = a['Международное непатентованное наименование']
+            let nameB = b['Международное непатентованное наименование']
+            if (nameA < nameB) //сортируем строки по возрастанию
+              return -1
+            if (nameA > nameB)
+              return 1
+            return 0 // Никакой сортировки
+          })
 
           excellist = this.addTotalPrice(excellist)
           headers = this.addHeaderForTotalPrice(headers)

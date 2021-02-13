@@ -1,13 +1,20 @@
 <template>
 
-  <table class="table" >
+  <table class="table">
     <tr>
       <th v-for="item in data.headers">
         {{ item.label }}
       </th>
     </tr>
     <tr v-for="item in data.body">
-      <td v-for="i in item">{{ i }}</td>
+      <td v-for="(i,index) in item">
+        <div v-if="typeof openMas(i) === 'object'">
+          <div v-for="elem in openMas(i)">
+            {{ elem }}
+          </div>
+        </div>
+        <div v-else>{{ i }}</div>
+      </td>
     </tr>
   </table>
 </template>
@@ -17,6 +24,15 @@ export default {
   name: 'TableViewer',
   props: {
     data: {}
+  },
+  methods: {
+    openMas(mass) {
+      if (mass.length) {
+        return mass
+      } else {
+        return 'l'
+      }
+    }
   }
 }
 </script>
@@ -26,12 +42,24 @@ export default {
 .table {
   tr {
     border-top: 1px solid #dfe2e5;
-    &:last-child{
+
+    &:last-child {
       font-weight: bold;
       border: none;
       border: 4px solid black;
-      td{
+
+      td {
         border: 1px solid black;
+      }
+
+    }
+
+    td {
+      width: auto;
+
+      &:nth-child(3) {
+
+
       }
     }
 
@@ -39,6 +67,7 @@ export default {
       background-color: #f6f8fa;
     }
   }
+
   th {
     background-color: rgb(255, 255, 204);
   }
