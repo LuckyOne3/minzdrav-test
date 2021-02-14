@@ -106,7 +106,7 @@ export default {
   methods: {
     openMas(mass) {
       if (mass.length) {
-        return mass.split(',')
+        return mass.split(',;')
       } else {
         return 'l'
       }
