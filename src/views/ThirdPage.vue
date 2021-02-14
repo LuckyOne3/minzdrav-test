@@ -5,14 +5,23 @@
     <table class="table scpecial">
       <tr>
         <th>
-
+          №
+        </th>
+        <th>
+          МНН
+        </th>
+        <th>
+          ТН
+        </th>
+        <th>
+          ЖНВЛП
         </th>
       </tr>
       <tr>
-        <td colspan="4">dfsf</td>
+        <td colspan="4" class="grey">ЛС в перечне ЖНВЛП</td>
       </tr>
       <tr v-for="(item,index) in dataInfoWithTrue">
-        <td>{{index + 1}}</td>
+        <td>{{ index + 1 }}</td>
         <td v-for="i in item">
           <div v-if="i === 'False'">
             N
@@ -21,15 +30,19 @@
             V
           </div>
           <div v-else>
-            {{i}}
+
+            <div v-for="elem in openMas(i)">
+              {{ elem }}
+            </div>
+
           </div>
         </td>
       </tr>
       <tr>
-        <td colspan="4">dfsf</td>
+        <td colspan="4" class="grey">Остальные ЛС</td>
       </tr>
       <tr v-for="(item,index) in dataInfoWithFalse">
-        <td>{{index + 1}}</td>
+        <td>{{ index + 1 }}</td>
         <td v-for="i in item">
           <div v-if="i === 'False'">
             N
@@ -38,7 +51,9 @@
             V
           </div>
           <div v-else>
-            {{i}}
+            <div v-for="elem in openMas(i)">
+              {{ elem }}
+            </div>
           </div>
         </td>
       </tr>
@@ -88,10 +103,22 @@ export default {
   created() {
     this.findRepetitionsAndReplace()
   },
+  methods: {
+    openMas(mass) {
+      if (mass.length) {
+        return mass.split(',')
+      } else {
+        return 'l'
+      }
+    }
+  }
 
 }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
+.grey {
+  background-color: #d9e2f3;
+}
 
 </style>
