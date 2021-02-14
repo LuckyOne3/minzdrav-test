@@ -78,9 +78,9 @@ export default {
     }
   },
   mounted() {
-    // "SELECT `spMNN`.`MNN`,`spMNN`.`VEN`,group_concat(spTN.TN) as TN FROM `spTN`
-    // INNER JOIN `spMNN` ON `spMNN`.`id`=`spTN`.`MNN`
-    // WHERE `spMNN`.`VEN` = 'False' или 'True'
+    // "SELECT `spMNN`.`MNN`,group_concat(spTN.TN SEPARATOR ';,\n') as TN,`spMNN`.`VEN`
+    // FROM `spTN` INNER JOIN `spMNN` ON `spMNN`.`id`=`spTN`.`MNN`
+    // WHERE `spMNN`.`VEN` = 'True'
     // GROUP BY `spMNN`.`MNN`"
     axios
         .get('http://fortest.webtm.ru/php/index.php?query=true')
