@@ -83,11 +83,11 @@ export default {
     // WHERE `spMNN`.`VEN` = 'False' или 'True'
     // GROUP BY `spMNN`.`MNN`"
     axios
-        .get('http://fortest.webtm.ru/index.php?query=true')
+        .get('http://fortest.webtm.ru/php/index.php?query=true')
         .then(response => (this.infoWithTrue = response.data));
 
     axios
-        .get('http://fortest.webtm.ru/index.php?query=false')
+        .get('http://fortest.webtm.ru/php/index.php?query=false')
         .then(response => (this.infoWithFalse = response.data));
   },
   computed: {
