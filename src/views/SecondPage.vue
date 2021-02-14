@@ -39,7 +39,7 @@ export default {
   methods: {
     findRepetitionsAndReplace() {
       console.log(this.changedExcel2Val.body)
-      if (this.changedExcel2Val.body.length === 0) {
+      if (this.changedExcel2Val.body.length === 0 | this.changedExcel2Val.body.length === 1) {
         let data = this.excel.body
 
         data.sort(function (a, b) {
