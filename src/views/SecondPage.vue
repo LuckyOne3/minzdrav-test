@@ -1,7 +1,9 @@
 <template>
   <div class="container">
-
-    <TableViewer :data="changedExcel2Val"/>
+    <div v-if="changedExcel2Val.body.length === 1">
+      Выберите файл xslx на первой странице
+    </div>
+    <TableViewer v-else :data="changedExcel2Val"/>
 
   </div>
 </template>
@@ -138,12 +140,12 @@ export default {
       })
       excellist.push(
           {
-            "Международное непатентованное наименование": ' ',
+            "Международное непатентованное наименование": 'Итого',
             "Торговое наименование" : '',
             "Форма выпуска" : '',
             "Количество": +count.toFixed(2),
-            "Цена": '---',
-            //"Цена": +price.toFixed(2),
+            //"Цена": '---',
+            "Цена": +price.toFixed(2),
             "Затраты": +totalPrice.toFixed(2),
           }
       )

@@ -50,6 +50,15 @@ export default {
 
       td {
         border: 1px solid black;
+        &:nth-child(1){
+          border: none!important;
+        }
+        &:nth-child(2){
+          border: none!important;
+        }
+        &:nth-child(3){
+          border: none!important;
+        }
       }
 
     }

@@ -2,6 +2,7 @@
   <div class="container">
     <div class="button_group mb-4">
 
+
       <input type="file" class="my_input" @change="importExcel($event)" id="upload"/>
     </div>
     <TableViewer :data="changedExcel1Val"/>
@@ -157,10 +158,11 @@ export default {
       })
       excellist.push(
           {
-            "Международное непатентованное наименование": ' ',
+            "Международное непатентованное наименование": 'Итого',
             "Торговое наименование": ' ',
             "Форма выпуска": ' ',
             "Количество": +count.toFixed(2),
+            //"Цена": '---',
             "Цена": +price.toFixed(2),
             "Затраты": +totalPrice.toFixed(2),
           }
