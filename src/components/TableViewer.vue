@@ -89,13 +89,25 @@ export default {
 
 
 }
-.scpecial{
+.special{
   tr {
     border-top: 1px solid #dfe2e5;
 
     &:last-child {
-      border: none!important;
+      border: 1px solid #dfe2e5!important;
       font-weight: normal!important;
+      td {
+        border: 1px solid black;
+        &:nth-child(1){
+          border: 1px solid #dfe2e5!important;
+        }
+        &:nth-child(2){
+          border: 1px solid #dfe2e5!important;
+        }
+        &:nth-child(3){
+          border: 1px solid #dfe2e5!important;
+        }
+      }
     }
     td {
       border: 1px solid #dfe2e5!important;

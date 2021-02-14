@@ -2,7 +2,7 @@
   <div class="container">
 
 
-    <table class="table scpecial">
+    <table class="table special">
       <tr>
         <th>
           №
