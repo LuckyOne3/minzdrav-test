@@ -38,7 +38,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
+<style lang="scss">
 .table {
   tr {
     border-top: 1px solid #dfe2e5;
@@ -56,6 +56,7 @@ export default {
 
     td {
       width: auto;
+      max-width: 350px;
 
       &:nth-child(3) {
 
@@ -78,5 +79,19 @@ export default {
   }
 
 
+}
+.scpecial{
+  tr {
+    border-top: 1px solid #dfe2e5;
+
+    &:last-child {
+      border: none!important;
+      font-weight: normal!important;
+    }
+    td {
+      border: 1px solid #dfe2e5!important;
+      padding: .6em 1em;
+    }
+  }
 }
 </style>

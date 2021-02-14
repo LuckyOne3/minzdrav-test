@@ -2,7 +2,8 @@
   <div id="app">
     <div id="nav" class="">
       <router-link to="/">FirstPage</router-link> |
-      <router-link to="/second">SecondPage</router-link>
+      <router-link to="/second">SecondPage</router-link> |
+      <router-link to="/third">ThirdPage</router-link>
     </div>
     <router-view/>
   </div>
