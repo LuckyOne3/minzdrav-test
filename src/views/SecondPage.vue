@@ -145,7 +145,8 @@ export default {
             "Форма выпуска" : '',
             "Количество": +count.toFixed(2),
             //"Цена": '---',
-            "Цена": +price.toFixed(2),
+            //"Цена": +price.toFixed(2),
+            "Цена": +(totalPrice/count).toFixed(2),
             "Затраты": +totalPrice.toFixed(2),
           }
       )
